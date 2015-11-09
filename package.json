@@ -1,6 +1,6 @@
 {
   "name": "format-input",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Format input data",
   "main": "index.js",
   "scripts": {
