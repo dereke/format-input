@@ -3,16 +3,28 @@ splice = function(value, idx, rem, s ) {
 };
 module.exports = function(el, format, placeholder){
   placeholder = placeholder || 'c';
+  var placeholderRegex = new RegExp(placeholder, 'g');
+  var formatChars = format.replace(placeholderRegex, '');
+  var formatCharsRegex = new RegExp('['+formatChars+']', 'g');
 
   el.addEventListener('keypress', function(e){
-    var value = e.target.value;
+    var pressedChar = String.fromCharCode(e.keyCode || e.charCode);
+    var value = e.target.value.replace(formatCharsRegex, '');
+
     for (var index=0; index < format.length; index++){
-      if(value.length >= index){
-        if (format[index] !== placeholder && format[index] !== value[index]) {
-          value = splice(value, index, 0, format[index]);
+      var isSeparator = format[index] !== placeholder;
+      if(value.length >= index && isSeparator) {
+        var pressedSeparator =  formatChars.indexOf(format[index]) !== -1 &&
+                                formatChars.indexOf(pressedChar) !== -1;
+
+        if (pressedSeparator) {
+          e.preventDefault();
         }
+        value = splice(value, index, 0, format[index]);
       }
     }
-    e.target.value = value;
+    if (e.target.value !== value) {
+      e.target.value = value;
+    }
   });
 };
