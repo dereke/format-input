@@ -1,0 +1,39 @@
+{
+  "name": "format-input",
+  "version": "0.0.1",
+  "description": "Format input data",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "Derek Ekins",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-monkey": "^1.25.0",
+    "browserify": "^12.0.1",
+    "karma": "^0.13.15",
+    "karma-browserify": "^4.4.0",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-mocha": "^0.2.0",
+    "mocha": "^2.3.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "browser-monkey": "^1.25.0",
+    "karma": "^0.13.15",
+    "karma-browserify": "^4.4.0",
+    "karma-mocha": "^0.2.0",
+    "karma-chrome-launcher": "^0.2.1",
+    "browserify": "^12.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dereke/format-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dereke/format-input/issues"
+  },
+  "homepage": "https://github.com/dereke/format-input"
+}
